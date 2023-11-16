@@ -21,7 +21,8 @@ const Home = () => {
   } = useSelector((state) => state.home);
 
   useEffect(() => {
-    setLoader(true)
+    document.title = "Home";
+    setLoader(true);
     dispatch(getCountries(setLoader));
 
     return () => {
@@ -58,21 +59,22 @@ const Home = () => {
       </div>
 
     </div>
-    {loader ? <div>Loading...</div> :
-      <div className="countriesStore">
-        {countries && countries.length > 0 ? countries.map((country, index) =>
-          <div key={index} className="country">
-            <div className="country-box">
-              <div className="country-flag">
-                <img src={country.flag} loading="lazy" alt="img" />
+    {loader ? <div className="no-records">Loading...</div> :
+      countries && countries.length > 0 ?
+        <div className="countries">
+          {countries.map((country, index) =>
+            <div key={index} className="country">
+              <div className="country-box">
+                <div className="country-flag">
+                  <img src={country.flag} loading="lazy" alt="img" />
+                </div>
+                <div>
+                  <div className="country-name">{country.name}</div>
+                  <div className="country-region">{country.region}</div>
+                </div>
               </div>
-              <div>
-                <div className="country-name">{country.name}</div>
-                <div className="country-region">{country.region}</div>
-              </div>
-            </div>
-          </div>) : <div>No Records To Display</div>}
-      </div>}
+            </div>)}
+        </div> : <div className="no-records">No Records To Display</div>}
     <Footer />
   </div>);
 }
