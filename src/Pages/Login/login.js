@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css"
 
 const Login = () => {
     const navigate = useNavigate();
 
+    useEffect(() => {
+        document.title = "Sign In"
+    }, [])
+
     const handleLogin = (e) => {
         e.preventDefault();
         navigate("/home");
-
     }
 
     return <div className="login-container">

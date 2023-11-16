@@ -103,6 +103,12 @@
     text-align: left;
 }
 
+.no-records {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 775px) {
     .home {
         padding: 1rem 1rem;
