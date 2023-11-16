@@ -103,7 +103,7 @@
     text-align: left;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 775px) {
     .home {
         padding: 1rem 1rem;
     }

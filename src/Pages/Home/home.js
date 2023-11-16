@@ -59,7 +59,7 @@ const Home = () => {
 
     </div>
     {loader ? <div>Loading...</div> :
-      <div className="countriesStore">
+      <div className="countries">
         {countries && countries.length > 0 ? countries.map((country, index) =>
           <div key={index} className="country">
             <div className="country-box">
